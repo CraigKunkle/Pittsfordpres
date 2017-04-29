@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *"> -->
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval' * ws:;style-src 'self' 'unsafe-inline' data: blob:;media-src *;img-src * 'self' data: content:;script-src * 'unsafe-inline' 'unsafe-eval' data: blob:;">
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- Your app title -->
+    <title>My App</title>
+
+    <!-- This template defaults to the iOS CSS theme. To support both iOS and material design themes, see the Framework7 Tutorial at the link below:
+        http://www.idangero.us/framework7/tutorials/maintain-both-ios-and-material-themes-in-single-app.html
+     -->
+
+    <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
+    <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
+	<link rel="stylesheet" href="css/framework7-icons.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Status bar overlay for full screen mode (PhoneGap) -->
+    <div class="statusbar-overlay"></div>
+
+    <!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+    <!-- Left panel with reveal effect-->
+    <div class="panel panel-left panel-reveal">
+        <div class="content-block">
+            <div class="list-block">
+			  <ul>
+				<li class="swipeout">
+				  <div class="swipeout-content item-content">
+					<div class="item-media"><i class="f7-icons size-25 color-green">help_fill</i></div>
+					<div class="item-inner">To-Do list for app</div>
+				  </div>
+				  <div class="swipeout-actions-right">
+					<a href="sendsuggest.html" class="action1">Send Idea</a>
+				  </div>
+				</li>
+				<li class="swipeout">
+				  <div class="swipeout-content item-content">
+					<div class="item-media"><i class="f7-icons size-25">gear_fill</i></div>
+					<div class="item-inner">Settings</div>
+				  </div>
+				  <div class="swipeout-actions-right">
+					<a href="#" class="action1 bg-orange">Allow alerts</a>
+					<a href="#" class="action2">DisAllow alerts</a>
+				  </div>
+				</li>
+				 <li class="item-content">
+				  <div class="item-media"><i class="f7-icons size-25">persons</i></div>
+				  <div class="item-inner">
+					<div class="item-title">Church Contacts</div>
+					<div class="item-after"></div>
+				  </div>
+				</li>
+			  </ul>
+			</div>
+        </div>
+    </div>
+
+    <!-- Views -->
+    <div class="views">
+        <!-- Your main view, should have "view-main" class -->
+        <div class="view view-main">
+            <!-- Top Navbar-->
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
+                    <div class="center sliding">First Presbyterian Church, NY</div>
+                    <div class="right">
+                        <!--
+                          Right link contains only icon - additional "icon-only" class
+                          Additional "open-panel" class tells app to open panel when we click on this link
+                        -->
+                        <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
+            <div class="pages navbar-through toolbar-through">
+                <!-- Page, "data-page" contains page name -->
+                <div data-page="index" class="page">
+                    <!-- Scrollable page content -->
+                    <div class="page-content">
+                        <div class="content-block">
+							<div class="image-wrap" id="wrapper">
+								<img src="lib/churchfam.png" id="churchbanner" class='churchbanner' alt="The church family">
+							</div>
+							<div class="content-block-inner"> 
+							 <h2>Welcome</h2> We are a caring community, growing spiritually as disciples of Jesus Christ.  Together we spread the good news of Jesus through worship, fellowship, education, prayer, and especially mission.
+							</div>
+							<div class="card">
+							  <div class="card-content">
+								<div class="card-content-inner">
+								<p>Use the quick links at the bottom or the menu at the top to navigate.</p>
+								</div>
+							  </div>
+							</div>
+                            <!-- Link to another page -->
+							 
+                            
+							<br>
+							<br>
+														<br>
+							<br>
+							
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Bottom Toolbar-->
+            <div class="toolbar">
+                <div class="toolbar-inner">
+                    <!-- Toolbar links -->
+                    <a href="#" onclick="cordova.InAppBrowser.open('https://www.pittsfordpres.org/calendar', '_blank', 'toolbar=yes');"><i class="f7-icons">calendar</i></a>
+                    <a href="books.html" class="link"><i class="f7-icons">book</i></a>
+					<a href="contact.html" class="link"><i class="f7-icons">phone</i></a>
+					<a href="#" onclick="cordova.InAppBrowser.open('https://www.pittsfordpres.org/blog/?category=Worship+Services', '_blank', 'toolbar=yes,allowInlineMediaPlayback=yes,hardwareback=yes');"><i class="f7-icons">play_fill</i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
+    <script type="text/javascript" src="js/my-app.js"></script>
+</body>
+
+</html>
